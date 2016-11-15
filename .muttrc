@@ -1,0 +1,39 @@
+source "gpg -d ~/.mutt/passwords.gpg |"
+
+set from = ''
+set realname = ''
+set imap_user = ''
+
+# Remote gmail folders
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed = '+[Google Mail]/Drafts'
+set trash = '+[Google Mail]/Trash'
+
+# Local folders for cached headers and certificates
+set header_cache =~/.mutt/cache/headers
+set certificate_file =~/.mutt/certificates
+
+# Securing
+set move = no
+set imap_keepalive = 900
+
+# SSL hardening
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv2=no
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
+
+
+# On some configurations this option is not recognised. It should
+# default to "" anyway. If this is a valid option, uncomment this.
+# unset ssl_ca_certificates_file
+# Don't trust the system.
+unset ssl_usesystemcerts
+set certificate_file=~/.mutt/gmailcerts
+
